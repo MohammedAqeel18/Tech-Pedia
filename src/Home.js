@@ -1,13 +1,19 @@
 import React from "react";
+import Homecard from "./Homecard";
 
-const Home= ()=> {
-    return (
-        <div>
-            <h1>Welcome to Tech-Pedia</h1>
-            <p>Your one-stop destination for all tech-related information.</p>
-            <p>Explore articles, tutorials, and the latest news in technology.</p>
-        </div>
-    );
+function Home({ list }) {
+  return (
+    <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {list.map((HomeContent) => (
+        <Homecard
+          key={HomeContent.id}
+          Name={HomeContent.Name}
+          Description={HomeContent.Description}
+          img={HomeContent.img}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default Home;
